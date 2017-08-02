@@ -2,7 +2,7 @@ clc;
 close all;
 clear all;
 
-addpath('../../data/mnist');%read the upper path
+addpath('.././data/mnist');%read the upper path
 
 load('trainData.mat');
 load('trainLabel.mat');
