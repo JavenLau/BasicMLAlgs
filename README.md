@@ -1,2 +1,4 @@
 # BasicMLAlgs
-some basic machine learning algorithms
+基础机器学习算法实现，以李航博士的《统计学习方法》为蓝本。
+================
+
