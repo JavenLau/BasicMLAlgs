@@ -25,7 +25,7 @@ for i = 1:fNum    %the possible values of feature
             end;           
         end;
 %         disp([count,temp]);
-        if(count == 0)
+        if(count == 0 || temp == 0)
             log = 0;
         else
             log = log2(count/temp);
@@ -37,8 +37,13 @@ for i = 1:fNum    %the possible values of feature
 end;
 ece = tempi; %empirical  conditional entropy
 
-ig = ee - ece; % information gain
+if(isnan(ece))
+    ig = 0;
+else
+    ig = ee - ece; % information gain
+end;
 
+% % information gain ratio
 % tempigr = 0;
 % for i = 1:fNum    %the possible values of feature
 %     temp = sum(data(:,feature)==i);

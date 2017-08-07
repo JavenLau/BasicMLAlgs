@@ -20,26 +20,43 @@ data = [1 2 2 1;
         3 2 2 1];
 label = [2 2 1 1 2 2 2 1 1 1 1 1 1 1 2];
 
-% 
-% feature selection
-[unused, f] = size(data); %the numbers of features
-for i = 1:f
-    ig(i)=computeInfoGain(data, label, i);
+subset(1,1) = {[1:1:15]};
+
+
+layer=2;
+featureTree=zeros(layer, 2^layer);
+
+for l = 1:layer 
+    fprintf('\n');
+    for ln = 1:(2^(l-1)) %the numbers
+        
+        
+        if( isempty(subset{l,ln}) )
+            disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(0)]);
+            continue;
+        end;
+        % feature selection
+        ig = featureSelection( data(subset{l,ln},:), label(subset{l,ln}') )       
+        % construct decision tree
+        [lnNum, unused] = size(data(subset{l,ln},:));
+        disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
+        [data, subset, subsetNum, featureTree] = constructTree(ig, data, data(subset{l,ln},:), label(subset{l,ln}'), subset, l, ln, featureTree);
+%         subset
+    end;
+%         pause;
 end;
 
-% 
-% construct decision tree
-[unused, mmax] = max(ig);
-[fNum, unused]=size(unique(data(:,mmax)));%the possible values of the feature with the max ig
-subset =  [];
-for i = 1:fNum
-    
-    subset =  find(data(:,mmax)==i); %the subset    
-    [unused, lnum]=size(unique( label(subset) ));
-    if(lnum == 1)
-        continue;
+%
+%label tree
+for i = 1:layer+1
+    for  j = 1:(2^(i-1))
+        if(isempty(subset{i,j}'))
+            lableTree{i,j}=ceil(lableTree{i-1,ceil(j/2)});
+            continue;
+        end;
+        lableTree{i,j}=mode(label(subset{i,j}'));
     end;
-    
-    computeInfoGain(data(subset,:), label(subset), 4)
 end;
+
+
 
