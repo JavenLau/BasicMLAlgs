@@ -13,7 +13,6 @@ error = 15;
 iteration = 0;
 while( max(max(error)) ~= 0 )
         
-    disp([iteration, w(1), w(2), b])
     error = [];
     errorLabel = [];
     errorNum = 0;
@@ -31,6 +30,7 @@ while( max(max(error)) ~= 0 )
         w = w + step*errorLabel(ii)*error(ii,:);
         b = b + step*errorLabel(ii);
     end;
+    disp([iteration, w(1), w(2), b, errorNum])
     iteration = iteration + 1;
     
 end;

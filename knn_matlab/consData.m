@@ -56,7 +56,7 @@ newTrainData(newTrainData~=0)=1; %binary
 %         end;
 %         trainImage(ceil(j/28), jj) = newTrainData(i,j);      
 %     end;
-%     fprintf('Disparity = %04d', newTrainLabel(i)-1);   
+%     fprintf('label = %04d', newTrainLabel(i)-1);   
 %     imshow(trainImage, []);   
 %     pause;
 %     fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b');  %delete the previous content 

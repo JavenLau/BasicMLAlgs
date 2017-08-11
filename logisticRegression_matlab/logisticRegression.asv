@@ -31,7 +31,7 @@ trainData = double([trainData, temp2]);
 
 %%
 %data pre-pocessing for logistic regression
-iteration = 2;
+iteration = 1;
 for it = 1:iteration
     
     errorData = [];
@@ -44,9 +44,9 @@ for it = 1:iteration
             errorLabel(errorNum) = trainLabel(i);
         end;
     end;
-    disp([it, errorNum]);
-    temp3=rrand(1,1,1,errorNum);
-    w = w - learningStep * lossGrd(w, errorData(temp3,:), errorLabel(temp3));
+    temp3=rrand(1,1,1,errnum);
+    w = w - learningStep*( errorlabel(temp3)*errorData(temp3,:)- );
+    errorNum
 end;
     
     
