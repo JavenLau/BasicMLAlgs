@@ -56,25 +56,22 @@ trainLabel(trainLabel>5) = 1;
 
 %%
 %data pre-pocessing for logistic regression
-iteration = 1;
+
 for it = 1:iteration
-    
     errorData = [];
-    errorLabel = [];
-    errorNum = 0;
     for i = 1:num
-        i
+
+    %     w*trainData(i,:)'
+
         if( ssign(w,trainData(i,:)) ~= trainLabel(i) )
-            errorNum = errorNum +1;
-            errorData(errorNum,:) = trainData(i,:);
-            errorLabel(errorNum) = trainLabel(i);
+
+
         end;
 
-%         w = w - learningStep*;
+        w = w - learningStep*;
 
 
     end;
-    errorNum
 end;
     
     

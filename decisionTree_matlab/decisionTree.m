@@ -10,7 +10,7 @@ load('trainLabel.mat');
 load('testData.mat');
 load('testLabel.mat');
 
-% % 
+%% 
 % % data pre-pocessing
 [num, unused] = size(testLabel);
 for i= 1:num
@@ -29,6 +29,9 @@ trainData(trainData==0)=2;%binaryzation
 testData(testData~=0)=1;
 testData(testData==0)=2;
 
+
+%%
+% % 
 subset(1,1) = {[1:1:num]'};
 subsetNum = 1;
 layer = 9;
