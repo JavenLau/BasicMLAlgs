@@ -34,8 +34,7 @@ testData(testData==0)=2;
 % % 
 subset(1,1) = {[1:1:num]'};
 subsetNum = 1;
-layer = 9;
-
+layer = 3;
 
 featureTree=zeros(layer, 2^layer);
 labelTree=zeros(layer, 2^layer);
@@ -53,7 +52,7 @@ for l = 1:layer
         %% construct decision tree
 %             disp(['construct decision tree']);
         [lnNum, unused] = size(trainData(subset{l,ln},:));
-%             disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
+            disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
         [trainData, subset, subsetNum, featureTree] = constructTree(ig, trainData, trainData(subset{l,ln},:), ntrainLabel(subset{l,ln}'), subset, l, ln, featureTree);
 
     end;
@@ -68,16 +67,16 @@ for i = 1:layer+1
 %             lableTree(i,j)=ceil(lableTree{i-1,ceil(j/2)});
             continue;
         end;
-        lableTree(i,j)=mode(ntrainLabel(subset{i,j}'));
+        labelTree(i,j)=mode(ntrainLabel(subset{i,j}'));
     end;
 end;
 
 %
-%% feature tree
-featureTree;
+% feature tree
+% featureTree;
 
-%% start test
-error = 1;
+% start test
+error = 0;
 for i = 1:10000
     
     for j = 1:layer
@@ -90,6 +89,8 @@ for i = 1:10000
         end;
         
     end;
+    label
+    pause;
     if(label ~= ntestLabel(i))
         error=error+1;
     end;
