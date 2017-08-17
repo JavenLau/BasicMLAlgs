@@ -12,7 +12,7 @@
 ###《统计学习方法》相关算法
 
 #### 《统计学习方法》第二章 感知器模型
-<br>代码：[perceptron/binary_perceptron.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/perceptron/binary_perceptron.py)
+代码：[perceptron/binary_perceptron.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/perceptron/binary_perceptron.py)
 
 #### 《统计学习方法》第三章 K近邻法
 <br>代码：[knn/knn.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/knn/knn.py)
