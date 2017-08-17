@@ -34,7 +34,7 @@
 
 #### 《统计学习方法》第八章 提升方法
 纯Python代码：[AdaBoost/adaboost.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/AdaBoost/adaboost.py)
-Python C++代码：[AdaBoost/adaboost_cpp.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/AdaBoost/adaboost_cpp.py),[AdaBoost/Sign/Sign/sign.h](https://github.com/WenDesi/lihang_book_algorithm/blob/master/AdaBoost/Sign/Sign/sign.h),[AdaBoost/Sign/Sign/sign.cpp](https://github.com/WenDesi/lihang_book_algorithm/blob/master/AdaBoost/Sign/Sign/sign.cpp)
+<br>Python C++代码：[AdaBoost/adaboost_cpp.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/AdaBoost/adaboost_cpp.py),[AdaBoost/Sign/Sign/sign.h](https://github.com/WenDesi/lihang_book_algorithm/blob/master/AdaBoost/Sign/Sign/sign.h),[AdaBoost/Sign/Sign/sign.cpp](https://github.com/WenDesi/lihang_book_algorithm/blob/master/AdaBoost/Sign/Sign/sign.cpp)
 
 #### 《统计学习方法》第十章 隐马尔科夫模型
 代码：[hmm/hmm.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/hmm/hmm.py)
