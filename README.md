@@ -21,7 +21,7 @@
 代码：[naive_bayes/naive_bayes.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/naive_bayes/naive_bayes.py)
 
 #### 《统计学习方法》第五章 决策树
-代码：[decision_tree/decision_tree.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/decision_tree/decision_tree.py)
+例5.2代码：[decisionTree_matlab/decisionTree_exp5_2.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/decisionTree_matlab/decisionTree_exp5_2.m)
 
 #### 《统计学习方法》第六章 逻辑斯提回归
 代码：[logistic_regression/logistic_regression.py](https://github.com/WenDesi/lihang_book_algorithm/blob/master/logistic_regression/logistic_regression.py)
