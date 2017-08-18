@@ -34,10 +34,11 @@ testData(testData==0)=2;
 % % 
 subset(1,1) = {[1:1:num]'};
 subsetNum = 1;
-layer = 3;
+layer = 9;
 
 featureTree=zeros(layer, 2^layer);
 labelTree=zeros(layer, 2^layer);
+fid=fopen('test.txt','wb');
 for l = 1:layer 
     l
     fprintf('\n');
@@ -52,49 +53,57 @@ for l = 1:layer
         %% construct decision tree
 %             disp(['construct decision tree']);
         [lnNum, unused] = size(trainData(subset{l,ln},:));
-            disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
+%         disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
+        ll=[l ln lnNum];
+        fprintf(fid,'%d  %d %d\r\n',ll);
+
+
         [trainData, subset, subsetNum, featureTree] = constructTree(ig, trainData, trainData(subset{l,ln},:), ntrainLabel(subset{l,ln}'), subset, l, ln, featureTree);
 
     end;
 
 end;
+ fclose(fid) ;
 
-
-%% label tree
-for i = 1:layer+1
-    for  j = 1:(2^(i-1))
-        if(isempty(subset{i,j}'))
-%             lableTree(i,j)=ceil(lableTree{i-1,ceil(j/2)});
-            continue;
-        end;
-        labelTree(i,j)=mode(ntrainLabel(subset{i,j}'));
-    end;
-end;
-
-%
-% feature tree
-% featureTree;
-
-% start test
-error = 0;
-for i = 1:10000
-    
-    for j = 1:layer
-        
-        jj=featureTree(j,1);
-        if(testData(i,jj) == 1)
-            label = labelTree(j,2*j-1);
-        else
-            label = labelTree(j,2*j+1);
-        end;
-        
-    end;
-    label
-    pause;
-    if(label ~= ntestLabel(i))
-        error=error+1;
-    end;
-end;
-error
+% %% label tree
+% for i = 1:layer+1
+%     for  j = 1:(2^(i-1))
+%         if(isempty(subset{i,j}'))
+% %             lableTree(i,j)=ceil(lableTree{i-1,ceil(j/2)});
+%             continue;
+%         end;
+%         labelTree(i,j)=mode(ntrainLabel(subset{i,j}'));
+%     end;
+% end;
+% 
+% 
+% %% feature tree
+% % featureTree;
+% 
+% %% start test
+% error = 0;
+% jj=featureTree(1,1);
+% for i = 1:10000
+%     jjnum = [];
+%     for j = 1:layer-1
+%            
+%         if(testData(i,jj) == 1)
+%             jjnum(j) = 0;
+%             jj=featureTree(j+1,binery2decimal(jjnum));
+%             label = labelTree(j+1,binery2decimal(jjnum));
+%         else
+%             jjnum(j) = 1;
+%             jj=featureTree(j+1,binery2decimal(jjnum));
+%             label = labelTree(j+1,binery2decimal(jjnum));          
+%         end;
+%         
+%     end;
+% %     label
+% %     pause;
+%     if(label ~= ntestLabel(i))
+%         error=error+1;
+%     end;
+% end;
+% error
 
 
