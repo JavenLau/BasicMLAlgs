@@ -9,7 +9,7 @@ ln=ln*2-2;
 [fNum, unused]=size(unique(data(:,mmax)));%the possible values of the feature with the max ig
 ssubsetNum = 0;
 subset =  [];
-for i = 1:fNum???
+for i = 1:fNum
 
     subset =  find(data(:,mmax)==i); %the subset
     [unused, lnum]=size(unique( label(subset) ));
