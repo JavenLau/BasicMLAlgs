@@ -34,9 +34,10 @@ testData(testData==0)=2;
 % % 
 subset(1,1) = {[1:1:num]'};
 subsetNum = 1;
-layer = 11;
+layer = 7;
 
-featureTree=zeros(layer, 2^layer);
+% featureTree=zeros(layer, 2^layer);
+featureTree=[];
 labelTree=zeros(layer, 2^layer);
 fid=fopen('test.txt','wb');
 for l = 1:layer 
@@ -46,8 +47,22 @@ for l = 1:layer
 %     disp([size(subset(l,:)), sum(temp==0)]);
     for ln = 1:(2^(l-1)) %the numbers 
 
-        % %feature selection
-%             disp(['feature selection',num2str(l),num2str(ln)]);
+        if( isempty(subset{l,ln}) )
+%             disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(0)]);
+            subset(l+1, ln*2-1) = {[]};
+            subset(l+1, ln*2) = {[]};
+            continue;
+        end;
+        
+        %% feature selection
+        [unused, lnum]=size(unique( ntrainLabel(subset{l,ln}) ));
+        [lnNum, unused] = size(trainData(subset{l,ln},:));
+        if(lnum == 1)
+%             disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
+            subset(l+1, ln*2-1) = {[]};
+            subset(l+1, ln*2) = {[]};
+            continue;
+        end;
         ig = featureSelection( trainData(subset{l,ln},:), ntrainLabel(subset{l,ln}') );   
         
         %% construct decision tree
@@ -56,8 +71,8 @@ for l = 1:layer
 %         disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
         ll=[l ln lnNum];
         fprintf(fid,'%d  %d %d\r\n',ll);
-
-        [trainData, subset, subsetNum, featureTree] = constructTree(ig, trainData, trainData(subset{l,ln},:), ntrainLabel(subset{l,ln}'), subset, l, ln, featureTree);
+        [trainData, subset, featureTree] = constructTree(ig, trainData, trainData(subset{l,ln},:), ...
+                                                                                               ntrainLabel(subset{l,ln}'), subset, l, ln, featureTree);
 
     end;
 
@@ -67,15 +82,13 @@ end;
 %% label tree
 for i = 1:layer+1
     for  j = 1:(2^(i-1))
-        disp([i,j]);
         if(isempty(subset{i,j}'))
-%             lableTree(i,j)=ceil(lableTree{i-1,ceil(j/2)});
+            labelTree(i,j)=ceil(labelTree(i-1,ceil(j/2)));
             continue;
         end;
         labelTree(i,j)=mode(ntrainLabel(subset{i,j}'));
     end;
 end;
-
 
 %% feature tree
 % featureTree;
@@ -86,7 +99,11 @@ jj=featureTree(1,1);
 for i = 1:10000
     jjnum = [];
     for j = 1:layer-1
-           
+        
+        if(jj == 0)
+            break;
+        end;
+        
         if(testData(i,jj) == 1)
             jjnum(j) = 0;
             jj=featureTree(j+1,binery2decimal(jjnum));

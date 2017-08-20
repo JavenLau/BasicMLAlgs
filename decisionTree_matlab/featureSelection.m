@@ -4,7 +4,7 @@ function[ig] = featureSelection(data, label)
 [unused, f] = size(data); %the numbers of features
 % f
 for i = 1:f
-    if(max(data(:,i))==3 || isenpty(data))
+    if( max(data(:,i))==4 )
         ig(i) = 0;
         continue;
     end;
