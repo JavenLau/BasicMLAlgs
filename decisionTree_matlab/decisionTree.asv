@@ -34,7 +34,7 @@ testData(testData==0)=2;
 % % 
 subset(1,1) = {[1:1:num]'};
 subsetNum = 1;
-layer = 4;
+layer = 9;
 
 % featureTree=zeros(layer, 2^layer);
 featureTree=[];
@@ -49,7 +49,7 @@ for l = 1:layer
 
         if( isempty(subset{l,ln}) )
 %             disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(0)]);
-            disp(['is empty',num2str(l), '--', num2str(ln)]);
+            disp(['is empty',num2str(l) , num2str(ln),', the numbers of leaf node is ',num2str(0)]);
             subset(l+1, ln*2-1) = {[]};
             subset(l+1, ln*2) = {[]};
             continue;
@@ -59,7 +59,6 @@ for l = 1:layer
         [unused, lnum]=size(unique( ntrainLabel(subset{l,ln}) ));
         [lnNum, unused] = size(trainData(subset{l,ln},:));
         if(lnum == 1)
-            disp(['one label',num2str(l),  '--', num2str(ln)]);
 %             disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
             subset(l+1, ln*2-1) = {[]};
             subset(l+1, ln*2) = {[]};

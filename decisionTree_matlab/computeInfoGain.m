@@ -37,7 +37,7 @@ for i = 1:fNum    %the possible values of feature
 end;
 ece = tempi; %empirical  conditional entropy
 
-if(isnan(ece))
+if(isnan(ece) || isnan(ee))
     ig = 0;
 else
     ig = ee - ece; % information gain
