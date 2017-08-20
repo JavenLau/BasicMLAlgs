@@ -24,7 +24,7 @@
 例5.2 MATLAB代码：[decisionTree_matlab/decisionTree_exp5_2.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/decisionTree_matlab/decisionTree_exp5_2.m)
 <br>例5.3 MATLAB代码：[decisionTree_matlab/decisionTree_exp5_3.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/decisionTree_matlab/decisionTree_exp5_3.m)
 
-#### 《统计学习方法》第六章 逻辑斯提回归
+#### 《统计学习方法》第六章 逻辑斯特回归
 
 
 #### 《统计学习方法》第六章 最大熵模型
