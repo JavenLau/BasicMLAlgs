@@ -34,7 +34,7 @@ testData(testData==0)=2;
 % % 
 subset(1,1) = {[1:1:num]'};
 subsetNum = 1;
-layer = 10;
+layer = 7;
 types = 10; % the types of lables
 
 % featureTree=zeros(layer, 2^layer);
