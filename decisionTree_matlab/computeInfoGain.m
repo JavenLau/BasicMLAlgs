@@ -1,26 +1,29 @@
 
-
-function[ig] = computeInfoGain(data, label, feature)
+function[ig] = computeInfoGain(data, label, feature, types)
 
 [unused, num] = size(label);
 [fNum, unused]=size(unique(data(:,feature)));
 
-for i = 1:2
+for i = 1:types % the types of lables
     Ck = sum(label(:,:)==i);
-    H(i) = -(Ck/num)*log2(Ck/num);
+    if(Ck==0 || num==0)
+        H(i)=0;
+    else
+        H(i) = -(Ck/num)*log2(Ck/num);
+    end;
 end;
-ee = sum(H); %empirical  entropy
+ee = sum(H); %% empirical  entropy
 
 tempi=0;
 for i = 1:fNum    %the possible values of feature
-    temp = sum(data(:,feature)==i);
+    temp = sum(data(:,feature)==i);   %Di
     
     tempk = 0; 
-    for k = 1:2    %the possible values of label
+    for k = 1:types    %the possible values of label
               
         count = 0;       
-        for n = 1:num
-            if(label(n)==k && data(n,feature)==i)
+        for n = 1:num   %Dik
+            if(label(n)==k && data(n,feature)==i)       
                 count=count+1;
             end;           
         end;
@@ -28,20 +31,16 @@ for i = 1:fNum    %the possible values of feature
         if(count == 0 || temp == 0)
             log = 0;
         else
-            log = log2(count/temp);
+            log = (count/temp)*log2(count/temp);
         end;
-        tempk=tempk+(count/temp)*log;
+        tempk=tempk+log;
     end;
 
     tempi=tempi-(temp/num)*tempk;
 end;
 ece = tempi; %empirical  conditional entropy
 
-if(isnan(ece) || isnan(ee))
-    ig = 0;
-else
-    ig = ee - ece; % information gain
-end;
+ig = ee - ece; % information gain
 
 % % information gain ratio
 % tempigr = 0;

@@ -1,17 +1,19 @@
 % clc
 
-% for l = 1:layer+1 
-%     temp = [];
-%     for ln = 1:(2^(l-1)) %the numbers
-%         temp = [temp;subset{l,ln}];       
-%     end;
-%     disp([l, ln, size(unique(temp))]);
-% %     pause;
-% end;
+%% debug
+for l = 1:layer+1 
+    temp = [];
+    for ln = 1:(2^(l-1)) %the numbers
+        temp = [temp;subset{l,ln}];       
+    end;
+    disp([l, ln, size(unique(temp))]);
+%     pause;
+end;
 
 fprintf('\n');
 fprintf('\n');
 
+%% debug
 for l = 1:layer+1 
     for ln = 1:(2^(l-1)) %the numbers
         [num, unused]=size(subset{l,ln});
@@ -20,13 +22,14 @@ for l = 1:layer+1
         disp([l, ln, sum(subsetNum(l,:))]);
 end;
 
+%% start test
 error = 0;
 jj=featureTree(1,1);
 for i = 1:10000
     jjnum = [];
     for j = 1:layer-1
         
-        if(jj == 0)
+        if(jj == 0 ||jj == 1)
             break;
         end;
         

@@ -24,6 +24,7 @@ subset(1,1) = {[1:1:15]};
 
 
 layer=3;
+types = 2; % the types of lables
 featureTree=[];
 
 for l = 1:layer 
@@ -46,7 +47,7 @@ for l = 1:layer
             subset(l+1, ln*2) = {[]};
             continue;
         end;
-        ig = featureSelection( data(subset{l,ln},:), label(subset{l,ln}') )
+        ig = featureSelection( data(subset{l,ln},:), label(subset{l,ln}'), types )
         
         %% construct decision tree
         [lnNum, unused] = size(data(subset{l,ln},:));

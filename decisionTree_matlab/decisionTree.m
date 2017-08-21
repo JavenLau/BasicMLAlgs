@@ -34,7 +34,8 @@ testData(testData==0)=2;
 % % 
 subset(1,1) = {[1:1:num]'};
 subsetNum = 1;
-layer = 4;
+layer = 10;
+types = 10; % the types of lables
 
 % featureTree=zeros(layer, 2^layer);
 featureTree=[];
@@ -47,6 +48,7 @@ for l = 1:layer
 %     disp([size(subset(l,:)), sum(temp==0)]);
     for ln = 1:(2^(l-1)) %the numbers 
 
+        %% 
         if( isempty(subset{l,ln}) )
 %             disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(0)]);
             disp(['is empty',num2str(l), '--', num2str(ln)]);
@@ -59,13 +61,13 @@ for l = 1:layer
         [unused, lnum]=size(unique( ntrainLabel(subset{l,ln}) ));
         [lnNum, unused] = size(trainData(subset{l,ln},:));
         if(lnum == 1)
-            disp(['one label',num2str(l),  '--', num2str(ln)]);
+            disp(['one label ',num2str(l),  '--', num2str(ln)]);
 %             disp(['layer-',num2str(l) , ',node-', num2str(ln),', the numbers of leaf node is ',num2str(lnNum)]);
             subset(l+1, ln*2-1) = {[]};
             subset(l+1, ln*2) = {[]};
             continue;
         end;
-        ig = featureSelection( trainData(subset{l,ln},:), ntrainLabel(subset{l,ln}') );   
+        ig = featureSelection( trainData(subset{l,ln},:), ntrainLabel(subset{l,ln}'), types);   
         
         %% construct decision tree
 %             disp(['construct decision tree']);
@@ -96,6 +98,11 @@ end;
 % featureTree;
 
 %% start test
+run('test.m');
 
+%% pruning Tree
+run('test.m');
 
+%% start test
+run('test.m');
 
