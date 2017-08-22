@@ -1,10 +1,10 @@
-<----------------------------->
+<--
 @Author: JavenLau
 @Date:   08-02-17
 @Email:  javenlau@hotmail.com
 @Last modified by:   JavenLau
 @Last modified time: 08-21-17
-<----------------------------->
+-->
 
 # BasicMLAlgs
 基础机器学习算法实现，以李航博士的《统计学习方法》为蓝本。
