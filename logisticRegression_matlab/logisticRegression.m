@@ -15,23 +15,24 @@ testLabel(testLabel==0) = -1;
 
 %%
 %data pre-pocessing for logistic regression
-w = ones(1,784);
-b = 1;
-learningStep = 0.00001;
+w = ones(1,784)*0.05;
+b = 0.05;
+learningStep = 0.003;
 
 w = [w,b];
 
 [num, unused] = size(testData);
 temp1 = ones(num,1);
 testData = double([testData, temp1]);
+testData(testData~=0)=1;
 
 [num, unused] = size(trainData);
 temp2 = ones(num,1);
 trainData = double([trainData, temp2]);
-
+trainData(trainData~=0)=1;
 %%
 %data pre-pocessing for logistic regression
-iteration = 20;
+iteration = 1000;
 for it = 1:iteration
     
     errorData = [];
@@ -44,7 +45,7 @@ for it = 1:iteration
             errorLabel(errorNum) = trainLabel(i);
         end;
     end;
-    disp([it, errorNum]);
+    disp([it, errorNum, sum(w)]);
     temp3=rrand(1,1,1,errorNum);
     w = w - learningStep * lossGrd(w, errorData(temp3,:), errorLabel(temp3));
 end;
