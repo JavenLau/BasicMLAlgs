@@ -30,7 +30,7 @@ MNIST MATLAB代码：[naiveBayes_matlab/naiveBayes.m](https://github.com/JavenLa
 MNIST_subset MATLAB代码：[logisticRegression_matlab/logisticRegression.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/logisticRegression_matlab/logisticRegression.m)
 
 #### 《统计学习方法》第六章 最大熵模型
-
+MNIST_subset MATLAB代码：[maxEntropy_matlab/maxEntropy.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/maxEntropy_matlab/maxEntropy.m)
 
 #### 《统计学习方法》第七章 支持向量机
 
