@@ -32,7 +32,7 @@ trainData = double([trainData, temp2]);
 trainData(trainData~=0)=1;
 %%
 %data pre-pocessing for logistic regression
-iteration = 1000;
+iteration = 500;
 for it = 1:iteration
     
     errorData = [];
