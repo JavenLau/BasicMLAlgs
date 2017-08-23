@@ -36,7 +36,7 @@ MNIST MATLAB代码：[naiveBayes_matlab/naiveBayes.m](https://github.com/JavenLa
 
 #### 《统计学习方法》第八章 提升方法
 例8.1 MATLAB代码：[AdaBoost_matlab/AdaBoost_8_1.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/AdaBoost_matlab/AdaBoost_8_1.m)
-<br>8.2 MATLAB代码：[AdaBoost_matlab/AdaBoost_8_2.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/AdaBoost_matlab/AdaBoost_8_2.m)
+<br>例8.2 MATLAB代码：[AdaBoost_matlab/AdaBoost_8_2.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/AdaBoost_matlab/AdaBoost_8_2.m)
 
 #### 《统计学习方法》第十章 隐马尔科夫模型
 
