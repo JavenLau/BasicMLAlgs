@@ -26,7 +26,7 @@ MNIST MATLAB代码：[naiveBayes_matlab/naiveBayes.m](https://github.com/JavenLa
 <br>MNIST MATLAB代码：[decisionTree_matlab/decisionTree.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/decisionTree_matlab/decisionTree.m)
 
 #### 《统计学习方法》第六章 逻辑斯特回归
-
+MNIST_subset MATLAB代码：[logisticRegression_matlab/logisticRegression.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/logisticRegression_matlab/logisticRegression.m)
 
 #### 《统计学习方法》第六章 最大熵模型
 
