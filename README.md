@@ -44,6 +44,9 @@ MNIST_subset MATLAB代码：[maxEntropy_matlab/maxEntropy.m](https://github.com/
 例8.1 MATLAB代码：[AdaBoost_matlab/AdaBoost_8_1.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/AdaBoost_matlab/AdaBoost_8_1.m)
 <br>例8.2 MATLAB代码：[AdaBoost_matlab/AdaBoost_8_2.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/AdaBoost_matlab/AdaBoost_8_2.m)
 
+#### 《统计学习方法》第九章 最大期望EM及GMM
+MATLAB代码：[EM-GMM_matlab/GMM.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/EM-GMM_matlab/GMM.m)
+
 #### 《统计学习方法》第十章 隐马尔科夫模型
 
 
