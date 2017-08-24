@@ -11,8 +11,8 @@
 
 ### 其他基础机器学习算法
 
-#### 其他--1	主成分分析
-
+#### 《拓展》--1	主成分分析
+MNIST_subset MATLAB代码：[knn_matlab/knn.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/knn_matlab/knn.m)
 
 ### 李航博士《统计学习方法》相关算法
 
