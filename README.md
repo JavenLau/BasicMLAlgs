@@ -14,7 +14,7 @@
 #### 其他--1	主成分分析
 
 
-### 《统计学习方法》相关算法
+### 李航博士《统计学习方法》相关算法
 
 #### 《统计学习方法》第二章 感知器模型
 例2.1 MATLAB代码：[perceptron_matlab/perceptron.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/perceptron_matlab/perceptron.m)
