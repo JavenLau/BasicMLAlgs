@@ -38,7 +38,7 @@ MNIST_subset MATLAB代码：[logisticRegression_matlab/logisticRegression.m](htt
 MNIST_subset MATLAB代码：[maxEntropy_matlab/maxEntropy.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/maxEntropy_matlab/maxEntropy.m)
 
 #### 《统计学习方法》第七章 支持向量机
-
+例8.2 MATLAB代码：[AdaBoost_matlab/AdaBoost_8_2.m]()
 
 #### 《统计学习方法》第八章 提升方法
 例8.1 MATLAB代码：[AdaBoost_matlab/AdaBoost_8_1.m](https://github.com/JavenLau/BasicMLAlgs/blob/master/AdaBoost_matlab/AdaBoost_8_1.m)
