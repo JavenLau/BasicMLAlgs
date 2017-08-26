@@ -8,7 +8,7 @@ Qpre = inf;
 [miu sigma alpha]= initParameters(); % EM algs is sensltive to the initial parameters
 
 %%
-iteration = 10;
+iteration = 20;
 for it = 1:iteration
     
     %% compute gaussian distribution density
