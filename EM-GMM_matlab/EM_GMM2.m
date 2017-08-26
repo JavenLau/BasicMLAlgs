@@ -1,5 +1,5 @@
 
-% sth is wrong
+% sth is wrong with this example
 clc
 clear all;
 close all;
