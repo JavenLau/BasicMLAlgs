@@ -10,7 +10,23 @@ load('trainData.mat');
 load('trainLabel.mat');
 load('testData.mat');
 load('testLabel.mat');
-trainLabel(trainLabel==0) = -1;
-testLabel(testLabel==0) = -1;
 
 w = ones(1,784)*0.05;
+
+[hig, wid]  = size(trainData);
+iteration = 10;
+
+for it = 1: iteration
+    for j = 1:hig
+        for k = 1:wid
+            
+
+        end
+        w = w - g;
+    end
+    
+    if(sqrt(g*g')<precision)
+        break;
+    end
+end
+
