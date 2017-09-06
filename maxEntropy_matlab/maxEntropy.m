@@ -20,6 +20,7 @@ for it = 1: iteration
     for j = 1:hig
         for k = 1:wid
             
+            
 
         end
         w = w - g;
