@@ -13,3 +13,4 @@ load('testLabel.mat');
 trainLabel(trainLabel==0) = -1;
 testLabel(testLabel==0) = -1;
 
+w = ones(1,784)*0.05;
